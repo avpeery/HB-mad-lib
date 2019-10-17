@@ -41,9 +41,9 @@ def greet_person():
                            person=player,
                            compliment=compliments)
 
-@app.route("/game")
+@app.route("/game", methods=["POST"])
 def show_madlib_form():
-    answer = request.args.get("yesno")
+    answer = request.form.get("yesno")
 
     if answer == "no":
         return render_template("goodbye.html")
