@@ -14,6 +14,7 @@ AWESOMENESS = [
     'smashing', 'lovely',
 ]
 
+MADLIB_CHOICES = ["finalmadlib.html", "finalmadlib2.html", "finalmadlib3.html"]
 
 @app.route('/')
 def start_here():
@@ -58,7 +59,7 @@ def show_madlib_completed():
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
 
-    return render_template("finalmadlib.html", 
+    return render_template(choice(MADLIB_CHOICES),
                             person=person, 
                             color=color, 
                             noun=noun, 
